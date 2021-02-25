@@ -25,7 +25,7 @@ public class TaskView extends HttpServlet implements Info {
 
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
-      String title = "Database Result";
+      String title = "Task List";
       String docType = "<!doctype html public \"-//w3c//dtd html 4.0 transitional//en\">\n"; //
       out.println(docType + //
             "<html>\n" + //
@@ -34,29 +34,29 @@ public class TaskView extends HttpServlet implements Info {
             "<h1 align=\"center\">" + title + "</h1>\n");
       out.println("<ul>");
 
-      List<TaskList> listEmployees = null;
+      List<TaskList> listTasks = null;
       if (keyword != null && !keyword.isEmpty()) {
-         listEmployees = UtilDBBetzinger.listEmployees(keyword);
+         listTasks = UtilDBBetzinger.listTasks(keyword);
       } else {
-         listEmployees = UtilDBBetzinger.listEmployees();
+         listTasks = UtilDBBetzinger.listTasks();
       }
-      display(listEmployees, out);
+      display(listTasks, out);
       out.println("</ul>");
-      out.println("<a href=/" + projectName + "/" + searchWebName + ">Search Data</a> <br>");
+      out.println("<a href=/" + projectName + "/" + viewWebName + ">View Tasks</a> <br>");
       out.println("</body></html>");
    }
 
-   void display(List<TaskList> listEmployees, PrintWriter out) {
-      for (TaskList employee : listEmployees) {
-         System.out.println("[DBG] " + employee.getId() + ", " //
-               + employee.getName() + ", " //
-               + employee.getAge() + ", " //
-         	   + employee.getPhone());
+   void display(List<TaskList> listTasks, PrintWriter out) {
+      for (TaskList task : listTasks) {
+         System.out.println("[DBG] " + task.getId() + ", " //
+               + task.getTaskName() + ", " //
+               + task.getPriority() + ", " //
+         	   + task.getDue());
 
-         out.println("<li>" + employee.getId() + ", " //
-               + employee.getName() + ", " //
-               + employee.getAge() + ", " // 
-         		+ employee.getPhone() + "</li>");
+         out.println("<li>" + task.getId() + ", " //
+               + task.getTaskName() + ", " //
+               + task.getPriority() + ", " // 
+         		+ task.getDue() + "</li>");
       }
    }
 

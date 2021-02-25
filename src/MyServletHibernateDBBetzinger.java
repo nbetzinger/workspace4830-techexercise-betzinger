@@ -34,27 +34,27 @@ public class MyServletHibernateDBBetzinger extends HttpServlet implements Info {
             "<h1 align=\"center\">" + title + "</h1>\n");
       out.println("<ul>");
 
-      List<TaskList> listEmployees = null;
+      List<TaskList> listTasks = null;
       if (keyword != null && !keyword.isEmpty()) {
-         listEmployees = UtilDBBetzinger.listEmployees(keyword);
+         listTasks = UtilDBBetzinger.listTasks(keyword);
       } else {
-         listEmployees = UtilDBBetzinger.listEmployees();
+         listTasks = UtilDBBetzinger.listTasks();
       }
-      display(listEmployees, out);
+      display(listTasks, out);
       out.println("</ul>");
-      out.println("<a href=/" + projectName + "/" + searchWebName + ">Search Data</a> <br>");
+      out.println("<a href=/" + projectName + "/" + viewWebName + ">Search Data</a> <br>");
       out.println("</body></html>");
    }
 
-   void display(List<TaskList> listEmployees, PrintWriter out) {
-      for (TaskList employee : listEmployees) {
+   void display(List<TaskList> listTasks, PrintWriter out) {
+      for (TaskList employee : listTasks) {
          System.out.println("[DBG] " + employee.getId() + ", " //
-               + employee.getName() + ", " //
-               + employee.getAge());
+               + employee.getTaskName() + ", " //
+               + employee.getPriority());
 
          out.println("<li>" + employee.getId() + ", " //
-               + employee.getName() + ", " //
-               + employee.getAge() + "</li>");
+               + employee.getTaskName() + ", " //
+               + employee.getPriority() + "</li>");
       }
    }
 

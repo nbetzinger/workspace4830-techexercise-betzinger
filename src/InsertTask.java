@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import util.Info;
 import util.UtilDBBetzinger;
 
-@WebServlet("/TaskInsert")
+@WebServlet("/InsertTask")
 public class InsertTask extends HttpServlet implements Info {
    private static final long serialVersionUID = 1L;
 
@@ -19,10 +19,10 @@ public class InsertTask extends HttpServlet implements Info {
    }
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      String userName = request.getParameter("userName").trim();
-      String age = request.getParameter("age").trim();
-      String phone = request.getParameter("phone").trim();
-      UtilDBBetzinger.createEmployees(userName, age, phone);
+      String taskName = request.getParameter("taskName").trim();
+      String priority = request.getParameter("priority").trim();
+      String due = request.getParameter("due").trim();
+      UtilDBBetzinger.createTasks(taskName, priority, due);
 
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
@@ -34,11 +34,11 @@ public class InsertTask extends HttpServlet implements Info {
             "<body bgcolor=\"#f0f0f0\">\n" + //
             "<h1 align=\"center\">" + title + "</h1>\n");
       out.println("<ul>");
-      out.println("<li> Name: " + userName);
-      out.println("<li> Age: " + age);
-      out.println("<li> Phone: " + phone);
+      out.println("<li> Task: " + taskName);
+      out.println("<li> Priority: " + priority);
+      out.println("<li> Due: " + due);
       out.println("</ul>");
-      out.println("<a href=/" + projectName + "/" + searchWebName + ">Search Data</a> <br>");
+      out.println("<a href=/" + projectName + "/" + viewWebName + ">Search Data</a> <br>");
       out.println("</body></html>");
    }
 
