@@ -30,7 +30,7 @@ public class TaskView extends HttpServlet implements Info {
       out.println(docType + //
             "<html>\n" + //
             "<head><title>" + title + "</title></head>\n" + //
-            "<body bgcolor=\"#f0f0f0\">\n" + //
+            "<body bgcolor=\"#f0f0f0\" style=\"font-family:arial;\">\n" + //
             "<h1 align=\"center\">" + title + "</h1>\n");
       out.println("<ul>");
 
@@ -53,8 +53,7 @@ public class TaskView extends HttpServlet implements Info {
                + task.getPriority() + ", " //
          	   + task.getDue());
 
-         out.println("<li>" + task.getId() + ", " //
-               + task.getTaskName() + ", " //
+         out.println("<li>" + task.getTaskName() + ", " //
                + task.getPriority() + ", " // 
          		+ task.getDue() + "</li>");
       }

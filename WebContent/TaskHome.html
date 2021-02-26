@@ -2,30 +2,48 @@
 <head>
 <style>
 header {
-    background-color:black;
+    background-color:navy;
     color:white;
+    font-family: arial;
     text-align:center;
-    padding:5px;	 
+    padding:5px;
+    border: 2px solid black;
 }
 nav {
     line-height:30px;
     background-color:#eeeeee;
-    height:300px;
-    width:100px;
-    float:left;
-    padding:5px;	      
+    padding:5px;
+    text-align: center;    
+    border-left: 1px solid black;
+    border-right: 1px solid black;  
+    border-bottom: 1px solid black;
 }
 section {
-    width:350px;
-    float:left;
-    padding:10px;	 	 
+    width:auto;
+    padding:10px;
+    font-family: arial;
+    padding-left: 10px;
+    text-align: center;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+a {
+	border: 1px solid black;
+	font-family: arial;
+	background-color: navy;
+	color: white;
+	display: inline-block;
+	text-align: center;
 }
 footer {
-    background-color:black;
+    background-color:navy;
     color:white;
     clear:both;
-    text-align:center;
-    padding:5px;	 	 
+    padding:1px;
+    border: 2px solid black;
 }
 </style>
 </head>
@@ -36,10 +54,10 @@ footer {
 </header>
 
 <nav>
-<a href="/techexercise-betzinger/TaskHome.html">Home</a><br>
-<a href="/techexercise-betzinger/InsertTask.html">Add Tasks</a> <br>
-<a href="/techexercise-betzinger/TaskView.html">View Tasks</a> <br>
-<a href="/techexercise-betzinger/RemoveTask.html">Remove Tasks</a><br>
+<a href="/techexercise-betzinger/TaskHome.html">Home</a>
+<a href="/techexercise-betzinger/InsertTask.html">Add Tasks</a>
+<a href="/techexercise-betzinger/TaskView.html">View Tasks</a>
+<a href="/techexercise-betzinger/RemoveTask.html">Remove Tasks</a>
 </nav>
 
 <section>
@@ -47,9 +65,12 @@ footer {
 	
 	<p>This application allows you to insert tasks with a given due date, set by yourself in a uniform format, with a given priority of 1-5. 1 is top priority, while 5 is not a priority at all.
 	Along with this, you are allowed to name the task, so that a small description is given as to what the task is for or about. You are able to search tasks by the due date, which will list all tasks on a date,
-	or see all of your tasks in a large list. The purpose is to have a visual organization of tasks. You may also remove a task, if wished, through the viewing page.</p>
+	or see all of your tasks in a large list. When a task is complete, or canceled, one may also remove the task through the remove page. The purpose is to have a visual organization of tasks.</p>
 	
 
 </section>
+<footer>
+<p>Tech Exercise by Nathan Betzinger</p>
+</footer>
 </body>
 </html>

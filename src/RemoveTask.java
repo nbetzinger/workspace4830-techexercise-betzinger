@@ -25,40 +25,30 @@ public class RemoveTask extends HttpServlet implements Info {
 
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
-      String title = "Remove Task";
+      String title = "Remove Task Confirmation";
       String docType = "<!doctype html public \"-//w3c//dtd html 4.0 transitional//en\">\n"; //
       out.println(docType + //
             "<html>\n" + //
             "<head><title>" + title + "</title></head>\n" + //
-            "<body bgcolor=\"#f0f0f0\">\n" + //
+            "<body bgcolor=\"#f0f0f0\" style=\"font-family:arial;\">\n" + //
             "<h1 align=\"center\">" + title + "</h1>\n");
       out.println("<ul>");
 
       List<TaskList> listTasks = null;
       if (keyword != null && !keyword.isEmpty()) {
          UtilDBBetzinger.removeTasks(keyword);
+         out.println("<h1>Task Removed!</h1>");
       } else {
-         listTasks = UtilDBBetzinger.listTasks();
+         out.println("<h1>No Tasks Removed!</h1>");
       }
-      display(out);
+      //display(out);
       out.println("</ul>");
       out.println("<a href=/" + projectName + "/" + removeWebName + ">Return to Removing Tasks</a> <br>");
       out.println("</body></html>");
    }
 
    void display(PrintWriter out) {
-//      for (TaskList task : listTasks) {
-//         System.out.println("[DBG] " + task.getId() + ", " //
-//               + task.getTaskName() + ", " //
-//               + task.getPriority() + ", " //
-//         	   + task.getDue());
-//
-//         out.println("<li>" + task.getId() + ", " //
-//               + task.getTaskName() + ", " //
-//               + task.getPriority() + ", " // 
-//         		+ task.getDue() + "</li>");
-//      }
-	   out.println("<li>Task Removed!</li>");
+	   
    }
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
