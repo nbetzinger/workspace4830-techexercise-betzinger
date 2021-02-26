@@ -32,26 +32,26 @@ footer {
 
 <body>
 <header>
-<h1> Add a Task</h1>
+<h1> Add Tasks</h1>
 </header>
 
 <nav>
 <a href="/techexercise-betzinger/TaskHome.html">Home</a><br>
 <a href="/techexercise-betzinger/InsertTask.html">Add Tasks</a> <br>
 <a href="/techexercise-betzinger/TaskView.html">View Tasks</a> <br>
-
+<a href="/techexercise-betzinger/RemoveTask.html">Remove Tasks</a><br>
 </nav>
 
 <section>
-	<h1>User Input</h1>
+	<h1>Add a task:</h1>
 	
 	<form action="InsertTask" method="POST">
 	
-		Task Name: <input type="text" name="userName"> <br />
-		Priority: <input type="text" name="age"> <br />
-		Due Date: <input type="text" name="phone"> <br />
+		Task Name: <input type="text" name="task_name"> <br />
+		Priority: <input type="text" name="priority"> <br />
+		Due Date: <input type="text" name="due"> <br />
 		
-		<input type="submit" value="Submit" />
+		<input type="submit" value="Add" />
 	</form>
 
 </section>

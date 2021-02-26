@@ -11,6 +11,6 @@
 		<property name="hibernate.connection.password">Beppy72~</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<property name="show_sql">false</property>
-		<mapping class="datamodel.EmployeeBetzinger" />
+		<mapping class="datamodel.TaskList" />
 	</session-factory>
 </hibernate-configuration>

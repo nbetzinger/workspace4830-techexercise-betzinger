@@ -68,7 +68,7 @@ public class UtilDBBetzinger {
          List<?> tasks = session.createQuery("FROM TaskList").list();
          for (Iterator<?> iterator = tasks.iterator(); iterator.hasNext();) {
             TaskList task = (TaskList) iterator.next();
-            if (task.getTaskName().startsWith(keyword)) {
+            if (task.getDue().startsWith(keyword)) {
                resultList.add(task);
             }
          }
@@ -98,4 +98,26 @@ public class UtilDBBetzinger {
          session.close();
       }
    }
+   
+   public static void removeTasks(String taskName) {
+	   Session session = getSessionFactory().openSession();
+	   Transaction tx = null;
+	   try {
+		   tx = session.beginTransaction();
+		   List<?> tasks = session.createQuery("FROM TaskList").list();
+		   for(Iterator<?> iterator = tasks.iterator(); iterator.hasNext();) {
+			   TaskList task = (TaskList) iterator.next();
+			   if(task.getTaskName().startsWith(taskName))
+				   session.delete(task);
+		   }
+		   tx.commit();
+	   } catch (HibernateException e) {
+		   if(tx!= null)
+			   tx.rollback();
+		   e.printStackTrace();
+	   } finally {
+		   session.close();
+	   }
+   }
+   
 }

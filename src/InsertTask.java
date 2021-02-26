@@ -19,7 +19,7 @@ public class InsertTask extends HttpServlet implements Info {
    }
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      String taskName = request.getParameter("taskName").trim();
+      String taskName = request.getParameter("task_name").trim();
       String priority = request.getParameter("priority").trim();
       String due = request.getParameter("due").trim();
       UtilDBBetzinger.createTasks(taskName, priority, due);
@@ -38,7 +38,7 @@ public class InsertTask extends HttpServlet implements Info {
       out.println("<li> Priority: " + priority);
       out.println("<li> Due: " + due);
       out.println("</ul>");
-      out.println("<a href=/" + projectName + "/" + viewWebName + ">Search Data</a> <br>");
+      out.println("<a href=/" + projectName + "/" + insertWebName + ">Return to Adding Tasks</a> <br>");
       out.println("</body></html>");
    }
 

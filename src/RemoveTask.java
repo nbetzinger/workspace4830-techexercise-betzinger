@@ -12,11 +12,11 @@ import datamodel.TaskList;
 import util.Info;
 import util.UtilDBBetzinger;
 
-@WebServlet("/TaskView")
-public class TaskView extends HttpServlet implements Info {
+@WebServlet("/RemoveTask")
+public class RemoveTask extends HttpServlet implements Info {
    private static final long serialVersionUID = 1L;
 
-   public TaskView() {
+   public RemoveTask() {
       super();
    }
 
@@ -25,7 +25,7 @@ public class TaskView extends HttpServlet implements Info {
 
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
-      String title = "Task List";
+      String title = "Remove Task";
       String docType = "<!doctype html public \"-//w3c//dtd html 4.0 transitional//en\">\n"; //
       out.println(docType + //
             "<html>\n" + //
@@ -36,28 +36,29 @@ public class TaskView extends HttpServlet implements Info {
 
       List<TaskList> listTasks = null;
       if (keyword != null && !keyword.isEmpty()) {
-         listTasks = UtilDBBetzinger.listTasks(keyword);
+         UtilDBBetzinger.removeTasks(keyword);
       } else {
          listTasks = UtilDBBetzinger.listTasks();
       }
-      display(listTasks, out);
+      display(out);
       out.println("</ul>");
-      out.println("<a href=/" + projectName + "/" + viewWebName + ">Return to Viewing Tasks</a> <br>");
+      out.println("<a href=/" + projectName + "/" + removeWebName + ">Return to Removing Tasks</a> <br>");
       out.println("</body></html>");
    }
 
-   void display(List<TaskList> listTasks, PrintWriter out) {
-      for (TaskList task : listTasks) {
-         System.out.println("[DBG] " + task.getId() + ", " //
-               + task.getTaskName() + ", " //
-               + task.getPriority() + ", " //
-         	   + task.getDue());
-
-         out.println("<li>" + task.getId() + ", " //
-               + task.getTaskName() + ", " //
-               + task.getPriority() + ", " // 
-         		+ task.getDue() + "</li>");
-      }
+   void display(PrintWriter out) {
+//      for (TaskList task : listTasks) {
+//         System.out.println("[DBG] " + task.getId() + ", " //
+//               + task.getTaskName() + ", " //
+//               + task.getPriority() + ", " //
+//         	   + task.getDue());
+//
+//         out.println("<li>" + task.getId() + ", " //
+//               + task.getTaskName() + ", " //
+//               + task.getPriority() + ", " // 
+//         		+ task.getDue() + "</li>");
+//      }
+	   out.println("<li>Task Removed!</li>");
    }
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

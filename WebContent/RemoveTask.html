@@ -1,0 +1,57 @@
+<html>
+<head>
+<style>
+header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;	 
+}
+nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;	      
+}
+section {
+    width:350px;
+    float:left;
+    padding:10px;	 	 
+}
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;	 	 
+}
+</style>
+</head>
+
+<body>
+<header>
+<h1> Remove Tasks </h1>
+</header>
+
+<nav>
+<a href="/techexercise-betzinger/TaskHome.html">Home</a><br>
+<a href="/techexercise-betzinger/InsertTask.html">Add Tasks</a> <br>
+<a href="/techexercise-betzinger/TaskView.html">View Tasks</a> <br>
+<a href="/techexercise-betzinger/RemoveTask.html">Remove Tasks</a><br>
+</nav>
+
+<section>
+	<h1>Input a task name to remove:</h1>
+	
+ 	<form action="RemoveTask" method="POST">
+	
+		Task Name: <input type="text" name="keyword"> <br />
+		
+		<input type="submit" value="Remove" />
+	</form> 
+
+</section>
+</body>
+</html>
